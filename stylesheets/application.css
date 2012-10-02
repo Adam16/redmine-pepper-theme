@@ -21,7 +21,7 @@
 
 /* line 1, ../sass/_general_elements.sass */
 body {
-    background: #f0f5fe url(../images/body_noise.gif);
+    background: #cfcfcf;
     color: #333333;
     font-family: helvetica, "helvetica neue", arial, sans-serif;
     font-size: 80%;
