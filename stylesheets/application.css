@@ -1770,14 +1770,14 @@ table.entries td.checkbox {
   }
 
   .projectSelector {
-
+      position: relative;
   }
 
   .projectSelector select {
-
+      border: 1px solid #f4f4f4;
   }
 
   .projectSelector select option {
-
+      background: #fff;
   }
 }
