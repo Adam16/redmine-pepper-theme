@@ -58,7 +58,7 @@ ProjectMenuBuilder = {
     },
 
     buildToggle: function (title) {
-        console.title("title");
+        console.info("title");
         console.debug(title);
         var _title = title.replace('...', '&hellip;'), toggle = $(document.createElement('a'));
         toggle.href = '#'; // Makes it behave like a real link
