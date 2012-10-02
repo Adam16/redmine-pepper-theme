@@ -9,7 +9,7 @@ ProjectMenuBuilder = {
   buildMenuItem: function(project) {
     var link = $(document.createElement('a'));
     link.href = project.url;
-    link.innerHTML = project.name;
+    link.htm = project.name;
     if (project.selected) {
       link.addClass('selected');
     }
@@ -53,7 +53,7 @@ ProjectMenuBuilder = {
 
     return toggle;
   },
-  
+
   getProjects: function(element) {
     var projectOptions = element.getElementsBySelector('option[value!=""]');
     return projectOptions.collect(function(node) {
@@ -66,7 +66,7 @@ ProjectMenuBuilder = {
   },
   
   getTitle: function(element) {
-    var title = element.childElements().first().innerHTML;
+    var title = element.children(":first").html();
     return title;
   },
 
