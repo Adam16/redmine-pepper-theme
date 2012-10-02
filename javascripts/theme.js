@@ -164,13 +164,17 @@ ProjectMenuBuilder = {
             }
 
             var selector = ProjectMenuBuilder.buildProjectSelector(projectSelector);
-            ProjectMenuBuilder.bindEvents(selector);
 
+            console.debug(projectSelector);
+            console.debug(projectName);
+            console.debug(selector);
+
+            ProjectMenuBuilder.bindEvents(selector);
             // Insert the project selector after the project name
             projectName.insertAfter(selector);
 
             // Remove the original select list
-            projectSelector.hide();
+            // projectSelector.hide();
         } catch (err) {
             console.error(err);
         }
