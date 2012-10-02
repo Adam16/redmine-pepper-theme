@@ -2,8 +2,8 @@ function injectViewportMetaTag() {
   var meta = $(document.createElement('meta'));
   meta.name = 'viewport';
   meta.content = 'width=450';
-  $$('head')[0].insert(meta);
-};
+  $('head')[0].append(meta);
+}
 
 ProjectMenuBuilder = {
   buildMenuItem: function(project) {
@@ -11,19 +11,18 @@ ProjectMenuBuilder = {
     link.href = project.url;
     link.innerHTML = project.name;
     if (project.selected) {
-      link.addClassName('selected');
-    };
+      link.addClass('selected');
+    }
     var li = $(document.createElement('li'));
     li.appendChild(link);
-
     return li;
   },
 
   buildList: function(projectSelector) {
     var projects = ProjectMenuBuilder.getProjects(projectSelector);
     var projectList = $(document.createElement('ul'));
-    projectList.addClassName('projects');
-    projectList.setStyle({ display: 'none' });
+    projectList.addClass('projects');
+    projectList.css({ display: 'none' });
 
     projects.each(function(project, index) {
       projectList.appendChild(ProjectMenuBuilder.buildMenuItem(project));
@@ -34,7 +33,7 @@ ProjectMenuBuilder = {
 
   buildProjectSelector: function(selectElement) {
     var selector = $(document.createElement('div'));
-    selector.addClassName('project_selector');
+    selector.addClass('project_selector');
 
     var title = ProjectMenuBuilder.getTitle(selectElement);
     selector.appendChild(ProjectMenuBuilder.buildToggle(title));
@@ -48,7 +47,7 @@ ProjectMenuBuilder = {
   buildToggle: function(title) {
     var toggle = $(document.createElement('a'));
     toggle.href = '#'; // Makes it behave like a real link
-    toggle.addClassName('toggle');
+    toggle.addClass('toggle');
     toggle.title = title;
     toggle.innerHTML = toggle.title.replace('...', '&hellip;');
 
@@ -88,17 +87,17 @@ ProjectMenuBuilder = {
 
     selector.showProjects = function() {
       $(this).down('.projects').show();
-      $(this).down('.toggle').addClassName('active');
+      $(this).down('.toggle').addClass('active');
     };
 
     // Display the project dropdown when the toggle is clicked
-    selector.down('.toggle').observe('click', function(event) {
+    selector.down('.toggle').on('click', function(event) {
       selector.toggleProjects();
       event.stop();
     });
 
     // Hide the dropdown again a short while after we've moved the mouse away
-    selector.observe('mouseout', function(event) {
+    selector.on('mouseout', function(event) {
       selector.toggleTimer = new PeriodicalExecuter(function(pe) {
         selector.hideProjects();
         pe.stop();
@@ -106,10 +105,10 @@ ProjectMenuBuilder = {
     });
 
     // Cancel the timer to hide the dropdown if we move the mouse back over the menu
-    selector.observe('mouseover', function(event) {
+    selector.on('mouseover', function(event) {
       if (selector.toggleTimer) {
         selector.toggleTimer.stop();
-      };
+      }
     });
   },
 
@@ -130,10 +129,10 @@ ProjectMenuBuilder = {
   }
 };
 
-document.observe("dom:loaded", function() {
+$(document).ready(function(){
   ProjectMenuBuilder.moveProjectSelectorToProjectName(
-    $$('#quick-search select').first(),
-    $$('#header h1').first()
+    $('#quick-search select').first(),
+    $('#header h1').first()
   );
   injectViewportMetaTag();
 });
