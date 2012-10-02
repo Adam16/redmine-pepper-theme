@@ -21,7 +21,8 @@
 
 /* line 1, ../sass/_general_elements.sass */
 body {
-    background: #cfcfcf;
+    background-color: #cfcfcf !important;
+    background-image: none !important;
     color: #333333;
     font-family: helvetica, "helvetica neue", arial, sans-serif;
     font-size: 80%;
