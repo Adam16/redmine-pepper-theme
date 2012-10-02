@@ -1,5 +1,5 @@
 @import url(../../../stylesheets/application.css);
-@import url("//fonts.googleapis.com/css?family=Bevan");
+@import url("//fonts.googleapis.com/css?family=Squada+One");
 
 .projectSelector {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -68,7 +68,7 @@ li {
 /* line 34, ../sass/_general_elements.sass */
 h1, h2, h3 {
   border: none;
-  font-family: "Bevan", arial, sans-serif;
+  font-family: "Squada One", arial, sans-serif;
   letter-spacing: -1px;
   padding: 0;
 }
