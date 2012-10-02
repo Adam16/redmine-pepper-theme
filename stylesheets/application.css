@@ -2,15 +2,21 @@
 @import url("//fonts.googleapis.com/css?family=Droid+Sans:regular,bold");
 
 .projectSelector {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    left: 10px;
     position: relative;
+    top: 4px;
+    width: auto;
 }
 
 .projectSelector select {
-    border: 1px solid #f4f4f4;
+    border: 1px solid #666;
 }
 
 .projectSelector select option {
     background: #fff;
+    border: 1px solid #ccc;
 }
 
 /* line 1, ../sass/_general_elements.sass */
